@@ -4,6 +4,7 @@ import useInterval from "../utils/useInterval";
 import {secondsToDuration} from "../utils/duration/index";
 import {checkBreakTime, checkFocusTime} from "./TimeLimits"
 import TimeBar from "./TimeBar";
+import TimeDisplay from "./TimeDisplay";
 
 function playSound() {
   new Audio(`https://bigsoundbank.com/UPLOAD/mp3/1482.mp3`).play()
@@ -17,9 +18,9 @@ function Pomodoro() {
   // Timer starts out paused
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
-  const [breakTime, setBreakTime] = useState(5)
+  const [breakTime, setBreakTime] = useState(300)
 
-  const [focusTime, setFocusTime] = useState(5)
+  const [focusTime, setFocusTime] = useState(1500)
 
   
 
@@ -178,7 +179,8 @@ function Pomodoro() {
       </div>
       <div>
         {/* TODO: This area should show only when a focus or break session is running or pauses */}
-        <TimeBar timePassed={timePassed} isTimerRunning={isTimerRunning} focusTime={focusTime} breakTime={breakTime}/>
+        <TimeDisplay timePassed={timePassed} isTimerRunning={isTimerRunning} focusTime={focusTime} breakTime={breakTime}/>
+        <TimeBar timePassed={timePassed} focusTime={focusTime} breakTime={breakTime}/>
       </div>
     </div>
   );
