@@ -4,3 +4,5 @@ This is a classic Pomodoro Timer built to help manage the length of focused time
 
 ### Focus on: 
 
+![FocusOn](/images/logo.png)
+
